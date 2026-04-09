@@ -155,7 +155,7 @@ void loop() {
     // Usamos '!r[i]' para invertir el bit (si es 0 pasa a 1, si es 1 pasa a 0)
     
     switch(valS) {
-      // --- ERRORES SIMPLES (Por si acaso pruebas uno solo) ---
+      // --- ERRORES SIMPLES ---
       case 13: r[0] = !r[0]; break; // Error en bit 0
       case 11: r[1] = !r[1]; break; // Error en bit 1
       case 7:  r[2] = !r[2]; break; // Error en bit 2
@@ -164,7 +164,7 @@ void loop() {
       case 2:  r[5] = !r[5]; break; // Error en bit 5
       case 1:  r[6] = !r[6]; break; // Error en bit 6
 
-      // --- TUS ERRORES DOBLES ASIGNADOS ---
+      // --- ERRORES DOBLES ASIGNADOS ---
       case 6: // Error Doble (1,2) -> Bits 0 y 1
         Serial.println("   -> Corrigiendo par (1,2)");
         r[0] = !r[0]; 
@@ -182,8 +182,7 @@ void loop() {
     }
 
     // === ACTUALIZACIÓN VISUAL DE LOS LEDS ===
-    // Ahora que 'r' ya está corregido, actualizamos la barra de LEDs
-    delay(1000); // Pequeña pausa dramática antes de corregir
+    delay(1000); 
     Serial.println(">> ACTUALIZANDO BARRA DE LEDS CON PALABRA CORREGIDA.");
     
     for(int i=0; i<7; i++) {
