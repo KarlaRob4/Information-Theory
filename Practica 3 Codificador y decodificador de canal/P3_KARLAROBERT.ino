@@ -15,7 +15,6 @@
  * - c7 = d1 ^ d2 ^ d3
  * * ---------------------------------------------------------
  *//* * CÓDIGO ETAPA 1: CODIFICADOR (CODER) CBS (7,3)
- * CORREGIDO: TODO CON LÓGICA INVERSA (Barra + Indicadores)
  * - Los LEDs 12 y 13 ahora se apagan con HIGH.
  * - La barra también se apaga con HIGH.
  */
@@ -25,7 +24,7 @@ const int pinD2 = 3;
 const int pinD3 = 4; 
 const int button = A1; 
 
-// INDICADORES SERIALES (Ahora configurados como Active Low)
+// INDICADORES SERIALES (configurados como Active Low)
 const int led_cero = 12;   
 const int led_uno  = 13;   
 
@@ -106,7 +105,7 @@ void loop() {
 
       int palabraCodigo[7] = {c1, c2, c3, c4, c5, c6, c7};
 
-      // 2. TRANSMISIÓN SERIAL (Corregida para tus LEDs)
+      // 2. TRANSMISIÓN SERIAL 
       for(int i = 0; i < 7; i++) {
         int bitActual = palabraCodigo[i];
         
